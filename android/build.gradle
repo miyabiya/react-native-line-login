@@ -24,10 +24,20 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     def androidSupportVersion = project.hasProperty('androidSupportVersion') ? project.androidSupportVersion : DEFAULT_ANDROID_SUPPORT_VERSION
 
-    implementation(name:'line-sdk-5.0.0', ext:'aar')
+    releaseImplementation(name:'line-sdk-5.0.1', ext:'aar'){
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'customtabs'
+    }
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"
+    implementation "com.android.support:customtabs:$androidSupportVersion"
     implementation 'com.facebook.react:react-native:+' // support react-native-v0.22-rc+
 }

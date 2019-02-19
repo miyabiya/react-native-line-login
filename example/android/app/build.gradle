@@ -131,7 +131,6 @@ android {
 
 dependencies {
     compile project(':react-native-line-login')
-    compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:$rootProject.androidSupportVersion"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
