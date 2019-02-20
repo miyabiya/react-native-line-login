@@ -6,7 +6,7 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
-import com.vunguyen.reactnative.androidsdk.LineReactPackage;
+import com.reactnative.line.LineReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
