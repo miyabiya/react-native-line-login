@@ -9,7 +9,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.3.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -28,15 +28,22 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        /**子模块含有aar:添加全局引用*/
+        flatDir {
+            // 由于Library module中引用了 youkuplayer 库的 aar，在多 module 的情况下，
+            // 其他的module编译会报错，所以需要在所有工程的repositories
+            // 下把Library module中的libs目录添加到依赖关系中
+            dirs project(':react-native-line-login').file('libs')
+        }
     }
 }
 
 
 ext {
     compileSdkVersion = 27
-    minSdkVersion = 16
+    minSdkVersion = 17
     targetSdkVersion = 27
-    buildToolsVersion = "27.0.2"
+    buildToolsVersion = "28.0.3"
     androidSupportVersion = "27.1.1"
     playServiceVersion = "11.8.0"
     firebaseVersion="11.8.0"

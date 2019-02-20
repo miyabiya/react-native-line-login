@@ -1,4 +1,4 @@
-package com.vunguyen.reactnative.androidsdk;
+package com.reactnative.line;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;

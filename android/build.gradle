@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 def DEFAULT_COMPILE_SDK_VERSION             = 24
 def DEFAULT_BUILD_TOOLS_VERSION             = "25.0.2"
 def DEFAULT_TARGET_SDK_VERSION              = 22
-def DEFAULT_GOOGLE_PLAY_SERVICES_VERSION    = "+"
+def DEFAULT_MIN_SDK_VERSION                 = 16
 def DEFAULT_ANDROID_SUPPORT_VERSION         = "+"
 
 android {
@@ -11,7 +11,7 @@ android {
     buildToolsVersion project.hasProperty('buildToolsVersion') ? project.buildToolsVersion : DEFAULT_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion project.hasProperty('minSdkVersion') ? project.minSdkVersion : DEFAULT_MIN_SDK_VERSION
         targetSdkVersion project.hasProperty('targetSdkVersion') ? project.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
@@ -22,22 +22,40 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    buildConfigField "String", "LINE_APP_PACKAGE_NAME", "\"jp.naver.line.android\""
+//    buildConfigField "String", "OPENID_DISCOVERY_DOCUMENT_URL", "\"https://access.line.me/.well-known/openid-configuration\""
+//    buildConfigField "String", "API_SERVER_BASE_URI", "\"https://api.line.me/\""
+//    buildConfigField "String", "WEB_LOGIN_PAGE_URL", "\"https://access.line.me/oauth2/v2.1/login\""
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
 
 dependencies {
     def androidSupportVersion = project.hasProperty('androidSupportVersion') ? project.androidSupportVersion : DEFAULT_ANDROID_SUPPORT_VERSION
 
-    releaseImplementation(name:'line-sdk-5.0.1', ext:'aar'){
+    implementation(name: 'line-sdk-5.0.1', ext: 'aar'){
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.android.support', module: 'customtabs'
     }
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"
     implementation "com.android.support:customtabs:$androidSupportVersion"
+
+    implementation('com.madgag.spongycastle:prov:1.58.0.0') {
+        exclude group: 'junit', module: 'junit'
+    }
+
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.10.5'
+    runtimeOnly ('io.jsonwebtoken:jjwt-orgjson:0.10.5') {
+        exclude group: 'org.json', module: 'json' //provided by Android natively
+    }
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
     implementation 'com.facebook.react:react-native:+' // support react-native-v0.22-rc+
 }
