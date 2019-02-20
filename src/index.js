@@ -1,5 +1,5 @@
 //native modules
-exports.LoginManager = require( './LoginManager' );
+exports.LoginManager = require('./LoginManager');
 
 //native components
-exports.LoginButton = require( './LoginButton' );
+exports.LoginButton = require('./LoginButton');
