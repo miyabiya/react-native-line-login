@@ -2,11 +2,12 @@
 #import "RNLineLoginManager.h"
 //#import <LineAdapter/LineAdapter.h>
 //#import <LineAdapterUI/LineAdapterUI.h>
+#import <LineSDK/LineSDK.h>
 
-@interface RNLineLoginManager ()
+@interface RNLineLoginManager ()<LineSDKLoginDelegate>
 @property (strong, nonatomic) RCTPromiseResolveBlock loginResolver;
 @property (strong, nonatomic) RCTPromiseRejectBlock loginRejecter;
-//@property (strong, nonatomic) LineAdapter *adapter;
+@property (strong, nonatomic) LineSDKAPI *apiClient;
 //@property (strong, nonatomic) UIViewController *navigationController;
 @end
 
@@ -25,21 +26,56 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(login:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-//    self.loginResolver = resolve;
-//    self.loginRejecter = reject;
+    self.loginResolver = resolve;
+    self.loginRejecter = reject;
 //
 //    [self login];
+    
+//    NSLog(@"Button pressed:");
+    [[LineSDKLogin sharedInstance] startLoginWithPermissions:@[@"profile"/*, @"friends", @"groups"*/]];
 }
 
 RCT_EXPORT_METHOD(getUserProfile:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
 //    [self getUserProfileInfo:resolve rejecter:reject];
+    
+    [self.apiClient getProfileWithCompletion:^(LineSDKProfile * _Nullable profile, NSError * _Nullable error) {
+        NSString * userID = profile.userID;
+        NSString * displayName = profile.displayName;
+        NSString * statusMessage = profile.statusMessage;
+        NSURL * pictureURL = profile.pictureURL;
+        
+        NSString * pictureUrlString;
+        
+        // If the user does not have a profile picture set, pictureURL will be nil
+        if (pictureURL) {
+            pictureUrlString = profile.pictureURL.absoluteString;
+        }
+    }];
+    
+//        [[self.adapter getLineApiClient] getMyProfileWithResultBlock:^(NSDictionary *aResult, NSError *aError)
+//         {
+//             if (aResult)
+//             {
+//                 // API call was successfully.
+//                 resolve(aResult);
+//
+//             }
+//             else
+//             {
+//                 // API call failed.
+//                 reject(@"LineSDK", @"Failed to get user profile", aError);
+//             }
+//         }];
 }
 
 RCT_EXPORT_METHOD(logout)
 {
 //    [self.adapter unauthorize];
+    [self.apiClient logoutWithCompletion:^(BOOL success, NSError * _Nullable error) {
+        
+    }];
 }
 
 //initialize LINE sdk
@@ -52,6 +88,14 @@ RCT_EXPORT_METHOD(logout)
 //        [[NSNotificationCenter defaultCenter] addObserver:self
 //                                                 selector:@selector(lineAdapterAuthorizationDidChange:)
 //                                                     name:LineAdapterAuthorizationDidChangeNotification object:nil];
+    
+        
+        // Set the LINE Login Delegate
+        [LineSDKLogin sharedInstance].delegate = self;
+        
+        _apiClient = [[LineSDKAPI alloc] initWithConfiguration:[LineSDKConfiguration defaultConfig]];
+        
+       
         
     }
     return self;
@@ -184,5 +228,35 @@ RCT_EXPORT_METHOD(logout)
 //         }
 //     }];
 //}
+
+#pragma mark LineSDKLoginDelegate
+
+- (void)didLogin:(LineSDKLogin *)login
+      credential:(LineSDKCredential *)credential
+         profile:(LineSDKProfile *)profile
+           error:(NSError *)error
+{
+    if (error) {
+        // Login failed with an error. Use the error parameter to identify the problem.
+        NSLog(@"Error: %@", error.localizedDescription);
+    }
+    else {
+        
+        // Login success. Extracts the access token, user profile ID, display name, status message, and profile picture.
+        NSString * accessToken = credential.accessToken.accessToken;
+        NSString * userID = profile.userID;
+        NSString * displayName = profile.displayName;
+        NSString * statusMessage = profile.statusMessage;
+        NSURL * pictureURL = profile.pictureURL;
+        
+        NSString * pictureUrlString;
+        
+        // If the user does not have a profile picture set, pictureURL will be nil
+        if (pictureURL) {
+            pictureUrlString = profile.pictureURL.absoluteString;
+        }
+        
+    }
+}
 @end
   
