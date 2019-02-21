@@ -9,6 +9,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <LineSDK/LineSDK.h>
 
 @implementation AppDelegate
 
@@ -32,9 +33,9 @@
   return YES;
 }
 
-//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
-//{
-//  return [[LineSDKLogin sharedInstance] handleOpenURL:url];
-//}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
+{
+  return [[LineSDKLogin sharedInstance] handleOpenURL:url];
+}
 
 @end
