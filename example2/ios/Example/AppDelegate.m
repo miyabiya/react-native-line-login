@@ -32,4 +32,9 @@
   return YES;
 }
 
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
+//{
+//  return [[LineSDKLogin sharedInstance] handleOpenURL:url];
+//}
+
 @end

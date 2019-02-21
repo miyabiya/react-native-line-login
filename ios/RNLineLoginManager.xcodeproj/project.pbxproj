@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNLineLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNLineLoginManager.m */; };
+		F441803F221E3A6900BC3D1D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F441803B221E3A5E00BC3D1D /* LineSDK.framework */; };
+		F4418042221E3A8200BC3D1D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4418041221E3A8200BC3D1D /* CoreTelephony.framework */; };
+		F4418044221E3A8E00BC3D1D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4418043221E3A8E00BC3D1D /* Security.framework */; };
+		F4418046221E3AAC00BC3D1D /* LineSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F441803D221E3A5E00BC3D1D /* LineSDKResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +30,12 @@
 		134814201AA4EA6300B7C361 /* libRNLineLoginManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLineLoginManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNLineLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLineLoginManager.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNLineLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLineLoginManager.m; sourceTree = "<group>"; };
+		F441803B221E3A5E00BC3D1D /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineSDK.framework; sourceTree = "<group>"; };
+		F441803C221E3A5E00BC3D1D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F441803D221E3A5E00BC3D1D /* LineSDKResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LineSDKResource.bundle; sourceTree = "<group>"; };
+		F441803E221E3A5E00BC3D1D /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F4418041221E3A8200BC3D1D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F4418043221E3A8E00BC3D1D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4418044221E3A8E00BC3D1D /* Security.framework in Frameworks */,
+				F4418042221E3A8200BC3D1D /* CoreTelephony.framework in Frameworks */,
+				F441803F221E3A6900BC3D1D /* LineSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,10 +63,32 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				F441803A221E3A5E00BC3D1D /* LineSDK */,
 				B3E7B5881CC2AC0600A0062D /* RNLineLoginManager.h */,
 				B3E7B5891CC2AC0600A0062D /* RNLineLoginManager.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				F4418040221E3A8200BC3D1D /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		F441803A221E3A5E00BC3D1D /* LineSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F441803B221E3A5E00BC3D1D /* LineSDK.framework */,
+				F441803C221E3A5E00BC3D1D /* CHANGELOG.md */,
+				F441803D221E3A5E00BC3D1D /* LineSDKResource.bundle */,
+				F441803E221E3A5E00BC3D1D /* LICENSE.txt */,
+			);
+			path = LineSDK;
+			sourceTree = "<group>";
+		};
+		F4418040221E3A8200BC3D1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4418043221E3A8E00BC3D1D /* Security.framework */,
+				F4418041221E3A8200BC3D1D /* CoreTelephony.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,6 +101,7 @@
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
+				F4418045221E3AA700BC3D1D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -106,6 +142,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4418045221E3AA700BC3D1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4418046221E3AAC00BC3D1D /* LineSDKResource.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
@@ -196,7 +243,10 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../ios/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../ios/Frameworks",
+					"$(PROJECT_DIR)/LineSDK",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -213,7 +263,10 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../ios/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../ios/Frameworks",
+					"$(PROJECT_DIR)/LineSDK",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
