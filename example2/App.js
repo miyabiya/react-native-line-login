@@ -12,17 +12,27 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { LoginManager } from 'react-native-line-login'
 
 export default class App extends Component {
-    _handleClickLogin () {
+    _handleClickLogin() {
         LoginManager.login()
-            .then((user) => {
-                console.log(user)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            .then( ( user ) => {
+                console.log( user )
+            } )
+            .catch( ( err ) => {
+                console.log( err )
+            } )
     }
 
-    _handleClickLogout () {
+    _handleClickUserProfile() {
+        LoginManager.getUserProfile()
+            .then( ( user ) => {
+                console.log( user )
+            } )
+            .catch( ( err ) => {
+                console.log( err )
+            } )
+    }
+
+    _handleClickLogout() {
         LoginManager.logout()
     }
 
@@ -50,6 +60,14 @@ export default class App extends Component {
 
                 <TouchableHighlight
                     style={styles.button}
+                    onPress={this._handleClickUserProfile}>
+                    <View>
+                        <Text>User Profile</Text>
+                    </View>
+                </TouchableHighlight>
+
+                <TouchableHighlight
+                    style={styles.button}
                     onPress={this._handleClickLogout}>
                     <View>
                         <Text>Logout</Text>
@@ -60,7 +78,7 @@ export default class App extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -77,4 +95,4 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
-});
+} );

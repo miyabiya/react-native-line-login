@@ -2,7 +2,6 @@ package com.gtgroup.gtinsurancestage;
 
 import android.app.Application;
 
-import com.example.BuildConfig;
 import com.facebook.react.ReactApplication;
 import com.reactnative.line.LineReactPackage;
 import com.facebook.react.ReactNativeHost;
