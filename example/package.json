@@ -1,15 +1,26 @@
 {
-  "name": "example",
+  "name": "Example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "copy_in": "rm -r -f ../../tmp-react-native-line-login &&  rsync -vaP --exclude=\".*\" --exclude=\"example\" --exclude=\"example2\" ../../react-native-line-login ../../tmp-react-native-line-login && rm -r -f ./node_modules/react-native-line-login/example && rm -r -f ./node_modules/react-native-line-login/example2  && cp -r ../../tmp-react-native-line-login/react-native-line-login ./node_modules/",
-    "copy_out": " cp -r ./node_modules/react-native-line-login/* ../"
+    "copy_out": " cp -r ./node_modules/react-native-line-login/* ../",
+    "test": "jest"
   },
   "dependencies": {
     "react": "16.6.3",
-    "react-native": "^0.57.8",
+    "react-native": "0.58.5"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.52.0",
+    "react-test-renderer": "16.6.3",
     "react-native-line-login": "git+https://github.com/xiechao/react-native-line-login.git"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

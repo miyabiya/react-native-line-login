@@ -1,6 +1,5 @@
-rootProject.name = 'example'
-
-include ':app'
-
+rootProject.name = 'Example'
 include ':react-native-line-login'
 project(':react-native-line-login').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-line-login/android')
+
+include ':app'
