@@ -4531,7 +4531,7 @@ react-is@^16.6.3, react-is@^16.8.1:
 
 "react-native-line-login@git+https://github.com/xiechao/react-native-line-login.git":
   version "0.0.2"
-  resolved "git+https://github.com/xiechao/react-native-line-login.git#a0594a9c747834566f280354b64aa72c3349851e"
+  resolved "git+https://github.com/xiechao/react-native-line-login.git#2dc06ac162ecf5ab774b906da26cd0eea3b95416"
 
 react-native@0.58.5:
   version "0.58.5"
