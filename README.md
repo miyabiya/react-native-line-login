@@ -20,7 +20,7 @@ react-native link react-native-line-login
 
 ## Configuration and usage
 
-See [android-guide.md](https://github.com/2359media/react-native-line-login/blob/master/docs/android.guide.md) and [ios-guide.md](https://github.com/2359media/react-native-line-login/blob/master/docs/ios.guide.md)
+See [android-guide.md](https://github.com/xiechao/react-native-line-login/blob/master/docs/android.guide.md) and [ios-guide.md](https://github.com/xiechao/react-native-line-login/blob/master/docs/ios.guide.md)
 
 ## Licence
 (MIT)
