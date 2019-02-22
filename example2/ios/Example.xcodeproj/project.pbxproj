@@ -41,6 +41,10 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F4418039221E39F600BC3D1D /* libRNLineLoginManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4418038221E398D00BC3D1D /* libRNLineLoginManager.a */; };
+		F4AFBBA8221FA9A100B99F6A /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AFBBA4221FA9A100B99F6A /* LineSDK.framework */; };
+		F4AFBBA9221FA9A100B99F6A /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = F4AFBBA5221FA9A100B99F6A /* CHANGELOG.md */; };
+		F4AFBBAA221FA9A100B99F6A /* LineSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F4AFBBA6221FA9A100B99F6A /* LineSDKResource.bundle */; };
+		F4AFBBAB221FA9A100B99F6A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4AFBBA7221FA9A100B99F6A /* LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +361,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F4418047221E3AD800BC3D1D /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Example.entitlements; path = Example/Example.entitlements; sourceTree = "<group>"; };
+		F4AFBBA4221FA9A100B99F6A /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LineSDK.framework; sourceTree = "<group>"; };
+		F4AFBBA5221FA9A100B99F6A /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F4AFBBA6221FA9A100B99F6A /* LineSDKResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LineSDKResource.bundle; sourceTree = "<group>"; };
+		F4AFBBA7221FA9A100B99F6A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +385,7 @@
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				F4AFBBA8221FA9A100B99F6A /* LineSDK.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
@@ -499,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				F4418047221E3AD800BC3D1D /* Example.entitlements */,
+				F4AFBBA3221FA9A100B99F6A /* LineSDK */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -630,6 +640,18 @@
 				F4418038221E398D00BC3D1D /* libRNLineLoginManager.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F4AFBBA3221FA9A100B99F6A /* LineSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F4AFBBA4221FA9A100B99F6A /* LineSDK.framework */,
+				F4AFBBA5221FA9A100B99F6A /* CHANGELOG.md */,
+				F4AFBBA6221FA9A100B99F6A /* LineSDKResource.bundle */,
+				F4AFBBA7221FA9A100B99F6A /* LICENSE.txt */,
+			);
+			name = LineSDK;
+			path = "../node_modules/react-native-line-login/ios/LineSDK";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1095,7 +1117,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4AFBBAA221FA9A100B99F6A /* LineSDKResource.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F4AFBBA9221FA9A100B99F6A /* CHANGELOG.md in Resources */,
+				F4AFBBAB221FA9A100B99F6A /* LICENSE.txt in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1286,7 +1311,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtgroup.gtinsurancestage;
 				PRODUCT_NAME = Example;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1311,7 +1336,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtgroup.gtinsurancestage;
 				PRODUCT_NAME = Example;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

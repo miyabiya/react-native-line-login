@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNLineLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNLineLoginManager.m */; };
-		F441803F221E3A6900BC3D1D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F441803B221E3A5E00BC3D1D /* LineSDK.framework */; };
 		F4418042221E3A8200BC3D1D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4418041221E3A8200BC3D1D /* CoreTelephony.framework */; };
 		F4418044221E3A8E00BC3D1D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4418043221E3A8E00BC3D1D /* Security.framework */; };
-		F4418046221E3AAC00BC3D1D /* LineSDKResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F441803D221E3A5E00BC3D1D /* LineSDKResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +43,6 @@
 			files = (
 				F4418044221E3A8E00BC3D1D /* Security.framework in Frameworks */,
 				F4418042221E3A8200BC3D1D /* CoreTelephony.framework in Frameworks */,
-				F441803F221E3A6900BC3D1D /* LineSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +145,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4418046221E3AAC00BC3D1D /* LineSDKResource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +250,10 @@
 					"$(SRCROOT)/../../react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = RNLineLoginManager;
 				SKIP_INSTALL = YES;
 			};
@@ -274,7 +273,10 @@
 					"$(SRCROOT)/../../react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = RNLineLoginManager;
 				SKIP_INSTALL = YES;
 			};

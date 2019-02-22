@@ -20,19 +20,27 @@
     return dispatch_get_main_queue();
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return NO;
+}
+
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(login:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-    self.loginResolver = resolve;
-    self.loginRejecter = reject;
 //
 //    [self login];
     
 //    NSLog(@"Button pressed:");
-    [[LineSDKLogin sharedInstance] startLoginWithPermissions:@[@"profile"/*, @"friends", @"groups"*/]];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        self.loginResolver = resolve;
+        self.loginRejecter = reject;
+        [[LineSDKLogin sharedInstance] startLoginWithPermissions:@[@"profile", @"friends", @"groups"]];
+//    });
+    
 }
 
 RCT_EXPORT_METHOD(getUserProfile:(RCTPromiseResolveBlock)resolve
