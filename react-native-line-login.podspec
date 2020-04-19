@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.authors      = package['author']
   s.homepage     = package['homepage']
   s.platform     = :ios, "9.0"
+  s.static_framework = true
 
   s.source       = { :git => "https://github.com/ton44079/react-native-line-login.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m}"

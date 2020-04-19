@@ -1,6 +1,6 @@
 {
   "name": "react-native-line-login",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react native line login",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2359media/react-native-line-login.git"
+    "url": "git+https://github.com/miyabiya/react-native-line-login.git"
   },
   "keywords": [
     "LINE",
     "login",
     "react-native"
   ],
-  "author": "dani.t",
+  "author": "miyabiya",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/2359media/react-native-line-login/issues"
   },
-  "homepage": "https://github.com/2359media/react-native-line-login#readme"
+  "homepage": "https://github.com/miyabiya/react-native-line-login#readme"
 }

@@ -7,7 +7,7 @@ Let your users sigin with their LINE account.
 ### - With RNPM
 
 ```bash
-"react-native-line-login": "git+https://github.com/xiechao/react-native-line-login.git"
+"react-native-line-login": "git+https://github.com/miyabiya/react-native-line-login.git"
 ```
 
 ```bash
